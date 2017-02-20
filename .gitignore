@@ -1,0 +1,5 @@
+target
+initial_data
+.idea
+*.iml
+.env
