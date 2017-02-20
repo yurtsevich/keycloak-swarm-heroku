@@ -52,7 +52,7 @@ Then change this for import:
 git push heroku master
 ```
 
-Next step is to remove `data.json` file from repository and migration-options from starting process and push to Heroku once again.
+This will import data created locally into remote DB. Next step is to remove `data.json` file from the repository and migration-options from starting process and push to Heroku once again.
  
 ## PostgreSQL connection
-How to configure KeyCloak to connect to PostgreSQL is more or less straightforward and we can see it in `pom.xml`, in `Main.java` and in `module.xml`
+How to configure KeyCloak to connect to PostgreSQL is more or less straightforward and you can see it in `pom.xml`, in `Main.java` and in `module.xml`
