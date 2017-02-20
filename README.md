@@ -7,12 +7,12 @@ The first tough point is that KeyCloak can't be installed on Heroku as standalon
 KeyCloak WildFly Swarm server to the rescue:
 
 ```
-    <dependency>
-      <groupId>org.wildfly.swarm.servers</groupId>
-      <artifactId>keycloak</artifactId>
-      <version>${version.wildfly.swarm}</version>
-      <classifier>swarm</classifier>
-    </dependency>
+<dependency>
+  <groupId>org.wildfly.swarm.servers</groupId>
+  <artifactId>keycloak</artifactId>
+  <version>${version.wildfly.swarm}</version>
+  <classifier>swarm</classifier>
+</dependency>
 ```
 
 In such a case we can run the server with simply:
@@ -28,7 +28,8 @@ Next tough point is Heroku's limitation on built slug size. It's limited by 300 
 And the last tough point is that KeyCloak server doesn't have prebuilt admin user. The only 2 options WildFly developers gave us are:
 * to open KeyCloak page locally ([localhost:8080/auth](http://localhost:8080/auth))
 * or to run CLI-command in local or remote console
-And we are again stuck as Heroku doesn't provide filesystem access. Thankfully there's solution for this as well. We can run server locally `heroku local:start` on local empty DB, create first admin and then export this DB into a JSON-file. For this we should add following Java-options when starting Swarm:
+
+And we are again stuck as Heroku doesn't provide filesystem access. Thankfully there's solution for this as well. We can run server locally `heroku local:start` on local empty DB, create first admin and then export this DB into a JSON-file. For this we should add following Java-options when starting Swarm locally:
 
 ```
 -Dkeycloak.migration.action=export \
